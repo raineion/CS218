@@ -164,19 +164,19 @@ _start:
 
 ; -----
 ;   byte additions
-;	bAns4 = bNum6 + bNum4
+;	 bAns4 = bNum6 + bNum4
 	mov	al, byte [bNum6]
 	add	al, byte [bNum4]
 	mov	byte [bAns4], al
 
-;	bAns5 = bNum6 + bNum3
+;	 bAns5 = bNum6 + bNum3
 	mov	al, byte [bNum6]
 	add	al, byte [bNum3]
 	mov	byte [bAns5], al
 
 ; -----
 ;   byte subtraction
-;	bAns9 = bNum6 - bNum4
+;	 bAns9 = bNum6 - bNum4
 	mov	al, byte [bNum6]
 	sub	al, byte [bNum4]
 	mov	byte [bAns9], al
@@ -188,38 +188,41 @@ _start:
 
 ; -----
 ;  unsigned byte multiplication
-;	wAns11 = bNum1 * bNum3
-	mov	al, byte [bNum1]
-	mul	byte [bNum3]
+;	 wAns11 = bNum1 * bNum3
+	movzx	ax, byte [bNum1]
+	movzx	cx, byte [bNum3]
+	mul	cx
 	mov	word [wAns11], ax
 
 ;	wAns12 = bNum2 * bNum3
-	mov	al, byte [bNum2]
-	mul	byte [bNum3]
+	movzx	ax, byte [bNum2]
+	movzx	cx, byte [bNum3]
+	mul	cx
 	mov	word [wAns12], ax
 
 ; -----
 ;  signed byte multiplication
-;	wAns14 = bNum5 * bNum2
-	mov	al, byte [bNum5]
-	imul	byte [bNum2]
+;	 wAns14 = bNum5 * bNum2
+	movsx	ax, byte [bNum5]
+	movsx	cx, byte [bNum2]
+	imul	cx
 	mov	word [wAns14], ax
 
 ;	wAns15 = bNum6 * bNum3
-	mov	al, byte [bNum6]
-	imul	byte [bNum3]
+	movsx	ax, byte [bNum6]
+	movsx	cx, byte [bNum3]
+	imul	cx
 	mov	word [wAns15], ax
 
 ; -----
 ;  unsigned byte division
-;	bAns16 = bNum1 / bNum2
+;	 bAns16 = bNum1 / bNum2
 	mov	ax, 0
 	mov	al, byte [bNum1]
 	div	byte [bNum2]
 	mov	byte [bAns16], al
 
-;	bAns18 = wNum2 / bNum4 
-;	bRem18 = wNum2 % bNum4
+;	 bAns18 = wNum2 / bNum4 
 	mov	ax, word [wNum2]
 	mov	bl, byte [bNum4]
 	div	bl
@@ -228,18 +231,18 @@ _start:
 
 ; -----
 ;  signed byte division
-;	bAns19 = bNum5 / bNum3
+;	 bAns19 = bNum5 / bNum3
 	mov	al, byte [bNum5]
 	cbw
 	idiv	byte [bNum3]
 	mov	byte [bAns19], al
 
-;	bAns21 = wNum4 / bNum1
+;	 bAns21 = wNum4 / bNum1
 	mov	ax, word [wNum4]
 	idiv	byte [bNum1]
 	mov	byte [bAns21], al
 
-;	bRem21 = wNum4 % bNum1
+;	 bRem21 = wNum4 % bNum1
 	mov	byte [bRem21], ah
 
 ; *****************************************
@@ -247,37 +250,37 @@ _start:
 
 ; -----
 ;  signed word additions
-;	wAns4 = wNum5 + wNum3
+;	 wAns4 = wNum5 + wNum3
 	mov	ax, word [wNum5]
 	add	ax, word [wNum3]
 	mov	word [wAns4], ax
 
-;	wAns5 = wNum6 + wNum1
+;	 wAns5 = wNum6 + wNum1
 	mov	ax, word [wNum6]
 	add	ax, word [wNum1]
 	mov	word [wAns5], ax
 
 ; -----
 ;  signed word subtraction
-;	wAns9 = wNum5 - wNum2
+;	 wAns9 = wNum5 - wNum2
 	mov	ax, word [wNum5]
 	sub	ax, word [wNum2]
 	mov	word [wAns9], ax
 
-;	wAns10 = wNum6 - wNum3
+;	 wAns10 = wNum6 - wNum3
 	mov	ax, word [wNum6]
 	sub	ax, word [wNum3]
 	mov	word [wAns10], ax
 
 ; -----
 ;  unsigned word multiplication
-;	dAns11 = wNum1 * wNum2
+;	 dAns11 = wNum1 * wNum2
 	mov	ax, word [wNum1]
 	mul	word [wNum2]
 	mov	word [dAns11], ax
 	mov	word [dAns11+2], dx
 
-;	dAns12 = wNum2 * wNum3
+;	 dAns12 = wNum2 * wNum3
 	mov	ax, word [wNum2]
 	mul	word [wNum3]
 	mov	word [dAns12], ax
@@ -285,13 +288,13 @@ _start:
 
 ; -----
 ;  signed word multiplication
-;	dAns14 = wNum5 * wNum1
+;	 dAns14 = wNum5 * wNum1
 	mov	ax, word [wNum5]
 	imul	word [wNum1]
 	mov	word [dAns14], ax
 	mov	word [dAns14+2], dx
 
-;	dAns15 = wNum6 * wNum2
+;	 dAns15 = wNum6 * wNum2
 	mov	ax, word [wNum6]
 	imul	word [wNum2]
 	mov	word [dAns15], ax
@@ -299,31 +302,31 @@ _start:
 
 ; -----
 ;  unsigned word division
-;	wAns16 = wNum1 / wNum2
+;	 wAns16 = wNum1 / wNum2
 	mov	dx, 0
 	mov	ax, word [wNum1]
 	div	word [wNum2]
 	mov	word [wAns16], ax
 
-;	wAns18 = dNum3 / wNum4 
+;	 wAns18 = dNum3 / wNum4 
 	mov	eax, dword [dNum3]
 	mov	dx, 0
 	mov	ax, word [dNum3]
 	div	word [wNum4]
 	mov	word [wAns18], ax
 
-;	wRem18 = dNum3 % wNum4
+;	 wRem18 = dNum3 % wNum4
 	mov	word [wRem18], dx
 
 ; -----
 ;  signed word division
-;	wAns19 = wNum5 / wNum3
+;	 wAns19 = wNum5 / wNum3
 	mov	ax, word [wNum5]
 	cwd
 	idiv	word [wNum3]
 	mov	word [wAns19], ax
 
-;	wAns21 = dNum1 / wNum2
+;	 wAns21 = dNum1 / wNum2
 	mov	eax, dword [dNum1]
 	cdq
 	mov	ebx, 0
@@ -331,7 +334,7 @@ _start:
 	idiv	ebx
 	mov	word [wAns21], ax
 
-;	wRem21 = dNum1 % wNum2
+;	 wRem21 = dNum1 % wNum2
 	mov	word [wRem21], dx
 
 ; *****************************************
@@ -339,7 +342,7 @@ _start:
 
 ; -----
 ;  signed double word additions
-;	dAns4 = dNum5 + dNum3
+;	 dAns4 = dNum5 + dNum3
 	mov	eax, dword [dNum5]
 	add	eax, dword [dNum3]
 	mov	dword [dAns4], eax
@@ -351,114 +354,116 @@ _start:
 
 ; -----
 ;  signed double word subtraction
-;	dAns9 = dNum5 - dNum2
+;	 dAns9 = dNum5 - dNum2
 	mov	eax, dword [dNum5]
 	sub	eax, dword [dNum2]
 	mov	dword [dAns9], eax
 
-;	dAns10 = dNum6 – dNum3 
+;	 dAns10 = dNum6 – dNum3 
 	mov	eax, dword [dNum6]
 	sub	eax, dword [dNum3]
 	mov	dword [dAns10], eax
 
 ; -----
 ;  unsigned double word multiplication
-;	qAns11 = dNum1 * dNum2
+;	 qAns11 = dNum1 * dNum2
+	mov	rax, 0
 	mov	eax, dword [dNum1]
-	mul	dword [dNum2]
-	mov	dword [qAns11], eax
-	mov	dword [qAns11+4], edx
+	mov	rcx, 0
+	mov	ecx, dword [dNum2]
+	mul	rcx
+	mov	qword [qAns11], rax
 
 ;	qAns12 = dNum2 * dNum3
+	mov	rax, 0
 	mov	eax, dword [dNum2]
-	mul	dword [dNum3]
-	mov	dword [qAns12], eax
-	mov	dword [qAns12+4], edx
+	mov	rcx, 0
+	mov	ecx, dword [dNum3]
+	mul	rcx
+	mov	qword [qAns12], rax
 
 ; -----
 ;  signed double word multiplication
-;	qAns14 = dNum5 * dNum1
-	mov	eax, dword [dNum5]
-	imul	dword [dNum1]
-	mov	dword [qAns14], eax
-	mov	dword [qAns14+4], edx
+;	 qAns14 = dNum5 * dNum1
+	movsxd	rax, dword [dNum5]
+	movsxd	rcx, dword [dNum1]
+	imul	rcx
+	mov	qword [qAns14], rax
 
 ;	qAns15 = dNum6 * dNum2
-	mov	eax, dword [dNum6]
-	imul	dword [dNum2]
-	mov	dword [qAns15], eax
-	mov	dword [qAns15+4], edx
-
+	movsxd	rax, dword [dNum6]
+	movsxd	rcx, dword [dNum2]
+	imul	rcx
+	mov	qword [qAns15], rax
 ; -----
 ;  unsigned double word division
-;	dAns16 = dNum2 / dNum3
+;	 dAns16 = dNum2 / dNum3
 	mov	edx, 0
 	mov	eax, dword [dNum2]
 	div	dword [dNum3]
 	mov	dword [dAns16], eax
 
-;	dAns18 = qAns12 / dNum4
-	mov	eax, dword [qAns12]
-	mov	edx, dword [qAns12+4]
+;	 dAns18 = qAns12 / dNum4
+	mov	rdx, 0
+	mov	rax, qword [qAns12]
 	div	dword [dNum4]
 	mov	dword [dAns18], eax
 
-;	dRem18 = qAns12 % dNum4
+;	 dRem18 = qAns12 % dNum4
 	mov	dword [dRem18], edx
 
 ; -----
 ;  signed double word division
-;	dAns19 = dNum5 / dNum2
+;	 dAns19 = dNum5 / dNum2
 	mov	eax, dword [dNum5]
 	cdq
 	idiv	dword [dNum2]
 	mov	dword [dAns19], eax
 
-;	dAns21 = qAns12 / dNum4
-	mov	eax, dword [qAns12]
-	mov	edx, dword [qAns12+4]
+;	 dAns21 = qAns12 / dNum4
+	mov	rax, qword [qAns12]
+	cqo
 	idiv	dword [dNum4]
 	mov	dword [dAns21], eax
 
-;	dRem21 = qAns12 % dNum4
+;	 dRem21 = qAns12 % dNum4
 	mov	dword [dRem21], edx
-
 ; *****************************************
 ;  QUADWORD Operations
 
 ; -----
 ;  signed quadword additions
-;	qAns4  = qNum5 + qNum1
+;	 qAns4  = qNum5 + qNum1
 	mov	rax, qword [qNum5]
 	add	rax, qword [qNum1]
 	mov	qword [qAns4], rax
 
-;	qAns5  = qNum6 + qNum2
+;	 qAns5  = qNum6 + qNum2
 	mov	rax, qword [qNum6]
 	add	rax, qword [qNum2]
 	mov	qword [qAns5], rax
 
 ; -----
 ;  signed quadword subtraction
-;	qAns9  = qNum5 - qNum3
+;	 qAns9  = qNum5 - qNum3
 	mov	rax, qword [qNum5]
 	sub	rax, qword [qNum3]
 	mov	qword [qAns9], rax
 
-;	qAns10 = qNum6 - qNum4
+;	 qAns10 = qNum6 - qNum4
 	mov	rax, qword [qNum6]
 	sub	rax, qword [qNum4]
 	mov	qword [qAns10], rax
 
 ; -----
 ;  unsigned quadword multiplication
-;	dqAns11  = qNum1 * qNum2
+;	 dqAns11  = qNum1 * qNum2
 	mov	rax, qword [qNum1]
 	mul	qword [qNum2]
 	mov	qword [dqAns11], rax
 	mov	qword [dqAns11+8], rdx
 
-;	dqAns12  = qNum2 * qNum3
+;	 dqAns12  = qNum2 * qNum3
 	mov	rax, qword [qNum2]
 	mul	qword [qNum3]
 	mov	qword [dqAns12], rax
@@ -466,13 +471,13 @@ _start:
 
 ; -----
 ;  signed quadword multiplication
-;	dqAns14  = qNum5 * qNum3
+;	 dqAns14  = qNum5 * qNum3
 	mov	rax, qword [qNum5]
 	imul	qword [qNum3]
 	mov	qword [dqAns14], rax
 	mov	qword [dqAns14+8], rdx
 
-;	dqAns15  = qNum6 * qNum4
+;	 dqAns15  = qNum6 * qNum4
 	mov	rax, qword [qNum6]
 	imul	qword [qNum4]
 	mov	qword [dqAns15], rax
@@ -480,36 +485,36 @@ _start:
 
 ; -----
 ;  unsigned quadword division
-;	qAns16 = qNum1 / qNum2
+;	 qAns16 = qNum1 / qNum2
 	mov	rdx, 0
 	mov	rax, qword [qNum1]
 	div	qword [qNum2]
 	mov	qword [qAns16], rax
 
-;	qAns18 = dqAns12 / qNum4
+;	 qAns18 = dqAns12 / qNum4
 	mov	rax, qword [dqAns12]
 	mov	rdx, qword [dqAns12+8]
 	div	qword [qNum4]
 	mov	qword [qAns18], rax
 
-;	qRem18 = dqAns12 % qNum4
+;	 qRem18 = dqAns12 % qNum4
 	mov	qword [qRem18], rdx
 
 ; -----
 ;  signed quadword division
-;	qAns19 = qNum5 / qNum3
+;	 qAns19 = qNum5 / qNum3
 	mov	rax, qword [qNum5]
 	cqo
 	idiv	qword [qNum3]
 	mov	qword [qAns19], rax
 
-;	qAns21 = dqAns12 / qNum4
+;	 qAns21 = dqAns12 / qNum4
 	mov	rax, qword [dqAns12]
 	mov	rdx, qword [dqAns12+8]
 	idiv	qword [qNum4]
 	mov	qword [qAns21], rax
 
-;	qRem21 = dqAns12 % qNum4
+;	 qRem21 = dqAns12 % qNum4
 	mov	qword [qRem21], rdx
 
 ; *****************************************************************
