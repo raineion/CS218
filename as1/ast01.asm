@@ -331,7 +331,7 @@ _start:
 	idiv	ebx
 	mov	word [wAns21], ax
 
-;	wRem21 = dNum1 % wNum2\
+;	wRem21 = dNum1 % wNum2
 	mov	word [wRem21], dx
 
 ; *****************************************
