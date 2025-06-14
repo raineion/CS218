@@ -225,309 +225,312 @@
    225                                 
    226 000000C8 66B80000                mov ax, 0
    227 000000CC 8A0425[00000000]        mov al, byte [bNum1]
-   228 000000D3 F63425[00000000]        div byte [bNum2]
-   229 000000DA 880425[00000000]        mov byte [bAns16], al
-   230                                 
+   228 000000D3 448A0425[00000000]      mov r8b, byte [bNum2]
+   229 000000DB 41F6F0                  div r8b
+   230 000000DE 880425[00000000]        mov byte [bAns16], al
    231                                 
-   232 000000E1 668B0425[00000000]      mov ax, word [wNum2]
-   233 000000E9 8A1C25[00000000]        mov bl, byte [bNum4]
-   234 000000F0 F6F3                    div bl
-   235 000000F2 880425[00000000]        mov byte [bAns18], al
-   236 000000F9 882425[00000000]        mov byte [bRem18], ah
-   237                                 
+   232                                 
+   233 000000E5 668B0425[00000000]      mov ax, word [wNum2]
+   234 000000ED 448A0425[00000000]      mov r8b, byte [bNum4]
+   235 000000F5 41F6F0                  div r8b
+   236 000000F8 880425[00000000]        mov byte [bAns18], al
+   237 000000FF 882425[00000000]        mov byte [bRem18], ah
    238                                 
    239                                 
    240                                 
-   241 00000100 8A0425[00000000]        mov al, byte [bNum5]
-   242 00000107 6698                    cbw
-   243 00000109 F63C25[00000000]        idiv byte [bNum3]
-   244 00000110 880425[00000000]        mov byte [bAns19], al
-   245                                 
-   246                                 
-   247 00000117 668B0425[00000000]      mov ax, word [wNum4]
-   248 0000011F F63C25[00000000]        idiv byte [bNum1]
-   249 00000126 880425[00000000]        mov byte [bAns21], al
-   250                                 
-   251                                 
-   252 0000012D 882425[00000000]        mov byte [bRem21], ah
+   241                                 
+   242 00000106 8A0425[00000000]        mov al, byte [bNum5]
+   243 0000010D 448A0425[00000000]      mov r8b, byte [bNum3]
+   244 00000115 6698                    cbw
+   245 00000117 41F6F8                  idiv r8b
+   246 0000011A 880425[00000000]        mov byte [bAns19], al
+   247                                 
+   248                                 
+   249 00000121 668B0425[00000000]      mov ax, word [wNum4]
+   250 00000129 448A0425[00000000]      mov r8b, byte [bNum1]
+   251 00000131 41F6F8                  idiv r8b
+   252 00000134 880425[00000000]        mov byte [bAns21], al
    253                                 
    254                                 
-   255                                 
+   255 0000013B 882425[00000000]        mov byte [bRem21], ah
    256                                 
    257                                 
    258                                 
    259                                 
-   260 00000134 668B0425[00000000]      mov ax, word [wNum5]
-   261 0000013C 66030425[00000000]      add ax, word [wNum3]
-   262 00000144 66890425[00000000]      mov word [wAns4], ax
-   263                                 
-   264                                 
-   265 0000014C 668B0425[00000000]      mov ax, word [wNum6]
-   266 00000154 66030425[00000000]      add ax, word [wNum1]
-   267 0000015C 66890425[00000000]      mov word [wAns5], ax
-   268                                 
-   269                                 
-   270                                 
+   260                                 
+   261                                 
+   262                                 
+   263 00000142 668B0425[00000000]      mov ax, word [wNum5]
+   264 0000014A 66030425[00000000]      add ax, word [wNum3]
+   265 00000152 66890425[00000000]      mov word [wAns4], ax
+   266                                 
+   267                                 
+   268 0000015A 668B0425[00000000]      mov ax, word [wNum6]
+   269 00000162 66030425[00000000]      add ax, word [wNum1]
+   270 0000016A 66890425[00000000]      mov word [wAns5], ax
    271                                 
-   272 00000164 668B0425[00000000]      mov ax, word [wNum5]
-   273 0000016C 662B0425[00000000]      sub ax, word [wNum2]
-   274 00000174 66890425[00000000]      mov word [wAns9], ax
-   275                                 
-   276                                 
-   277 0000017C 668B0425[00000000]      mov ax, word [wNum6]
-   278 00000184 662B0425[00000000]      sub ax, word [wNum3]
-   279 0000018C 66890425[00000000]      mov word [wAns10], ax
-   280                                 
-   281                                 
-   282                                 
+   272                                 
+   273                                 
+   274                                 
+   275 00000172 668B0425[00000000]      mov ax, word [wNum5]
+   276 0000017A 662B0425[00000000]      sub ax, word [wNum2]
+   277 00000182 66890425[00000000]      mov word [wAns9], ax
+   278                                 
+   279                                 
+   280 0000018A 668B0425[00000000]      mov ax, word [wNum6]
+   281 00000192 662B0425[00000000]      sub ax, word [wNum3]
+   282 0000019A 66890425[00000000]      mov word [wAns10], ax
    283                                 
-   284 00000194 668B0425[00000000]      mov ax, word [wNum1]
-   285 0000019C 66F72425[00000000]      mul word [wNum2]
-   286 000001A4 66890425[00000000]      mov word [dAns11], ax
-   287 000001AC 66891425[02000000]      mov word [dAns11+2], dx
-   288                                 
-   289                                 
-   290 000001B4 668B0425[00000000]      mov ax, word [wNum2]
-   291 000001BC 66F72425[00000000]      mul word [wNum3]
-   292 000001C4 66890425[00000000]      mov word [dAns12], ax
-   293 000001CC 66891425[02000000]      mov word [dAns12+2], dx
-   294                                 
-   295                                 
-   296                                 
+   284                                 
+   285                                 
+   286                                 
+   287 000001A2 668B0425[00000000]      mov ax, word [wNum1]
+   288 000001AA 66F72425[00000000]      mul word [wNum2]
+   289 000001B2 66890425[00000000]      mov word [dAns11], ax
+   290 000001BA 66891425[02000000]      mov word [dAns11+2], dx
+   291                                 
+   292                                 
+   293 000001C2 668B0425[00000000]      mov ax, word [wNum2]
+   294 000001CA 66F72425[00000000]      mul word [wNum3]
+   295 000001D2 66890425[00000000]      mov word [dAns12], ax
+   296 000001DA 66891425[02000000]      mov word [dAns12+2], dx
    297                                 
-   298 000001D4 668B0425[00000000]      mov ax, word [wNum5]
-   299 000001DC 66F72C25[00000000]      imul word [wNum1]
-   300 000001E4 66890425[00000000]      mov word [dAns14], ax
-   301 000001EC 66891425[02000000]      mov word [dAns14+2], dx
-   302                                 
-   303                                 
-   304 000001F4 668B0425[00000000]      mov ax, word [wNum6]
-   305 000001FC 66F72C25[00000000]      imul word [wNum2]
-   306 00000204 66890425[00000000]      mov word [dAns15], ax
-   307 0000020C 66891425[02000000]      mov word [dAns15+2], dx
-   308                                 
-   309                                 
-   310                                 
+   298                                 
+   299                                 
+   300                                 
+   301 000001E2 668B0425[00000000]      mov ax, word [wNum5]
+   302 000001EA 66F72C25[00000000]      imul word [wNum1]
+   303 000001F2 66890425[00000000]      mov word [dAns14], ax
+   304 000001FA 66891425[02000000]      mov word [dAns14+2], dx
+   305                                 
+   306                                 
+   307 00000202 668B0425[00000000]      mov ax, word [wNum6]
+   308 0000020A 66F72C25[00000000]      imul word [wNum2]
+   309 00000212 66890425[00000000]      mov word [dAns15], ax
+   310 0000021A 66891425[02000000]      mov word [dAns15+2], dx
    311                                 
-   312 00000214 66BA0000                mov dx, 0
-   313 00000218 668B0425[00000000]      mov ax, word [wNum1]
-   314 00000220 66F73425[00000000]      div word [wNum2]
-   315 00000228 66890425[00000000]      mov word [wAns16], ax
-   316                                 
-   317                                 
-   318 00000230 8B0425[00000000]        mov eax, dword [dNum3]
-   319 00000237 66BA0000                mov dx, 0
-   320 0000023B 668B0425[00000000]      mov ax, word [dNum3]
-   321 00000243 66F73425[00000000]      div word [wNum4]
-   322 0000024B 66890425[00000000]      mov word [wAns18], ax
-   323                                 
-   324                                 
-   325 00000253 66891425[00000000]      mov word [wRem18], dx
+   312                                 
+   313                                 
+   314                                 
+   315 00000222 66BA0000                mov dx, 0
+   316 00000226 668B0425[00000000]      mov ax, word [wNum1]
+   317 0000022E 66F73425[00000000]      div word [wNum2]
+   318 00000236 66890425[00000000]      mov word [wAns16], ax
+   319                                 
+   320                                 
+   321 0000023E 8B0425[00000000]        mov eax, dword [dNum3]
+   322 00000245 66BA0000                mov dx, 0
+   323 00000249 668B0425[00000000]      mov ax, word [dNum3]
+   324 00000251 66F73425[00000000]      div word [wNum4]
+   325 00000259 66890425[00000000]      mov word [wAns18], ax
    326                                 
    327                                 
-   328                                 
+   328 00000261 66891425[00000000]      mov word [wRem18], dx
    329                                 
-   330 0000025B 668B0425[00000000]      mov ax, word [wNum5]
-   331 00000263 6699                    cwd
-   332 00000265 66F73C25[00000000]      idiv word [wNum3]
-   333 0000026D 66890425[00000000]      mov word [wAns19], ax
-   334                                 
-   335                                 
-   336 00000275 8B0425[00000000]        mov eax, dword [dNum1]
-   337 0000027C 99                      cdq
-   338 0000027D BB00000000              mov ebx, 0
-   339 00000282 668B1C25[00000000]      mov bx, word [wNum2]
-   340 0000028A F7FB                    idiv ebx
-   341 0000028C 66890425[00000000]      mov word [wAns21], ax
-   342                                 
-   343                                 
-   344 00000294 66891425[00000000]      mov word [wRem21], dx
+   330                                 
+   331                                 
+   332                                 
+   333 00000269 668B0425[00000000]      mov ax, word [wNum5]
+   334 00000271 6699                    cwd
+   335 00000273 66F73C25[00000000]      idiv word [wNum3]
+   336 0000027B 66890425[00000000]      mov word [wAns19], ax
+   337                                 
+   338                                 
+   339 00000283 8B0425[00000000]        mov eax, dword [dNum1]
+   340 0000028A 99                      cdq
+   341 0000028B BB00000000              mov ebx, 0
+   342 00000290 668B1C25[00000000]      mov bx, word [wNum2]
+   343 00000298 F7FB                    idiv ebx
+   344 0000029A 66890425[00000000]      mov word [wAns21], ax
    345                                 
    346                                 
-   347                                 
+   347 000002A2 66891425[00000000]      mov word [wRem21], dx
    348                                 
    349                                 
    350                                 
    351                                 
-   352 0000029C 8B0425[00000000]        mov eax, dword [dNum5]
-   353 000002A3 030425[00000000]        add eax, dword [dNum3]
-   354 000002AA 890425[00000000]        mov dword [dAns4], eax
-   355                                 
-   356                                 
-   357 000002B1 8B0425[00000000]        mov eax, dword [dNum6]
-   358 000002B8 030425[00000000]        add eax, dword [dNum4]
-   359 000002BF 890425[00000000]        mov dword [dAns5], eax
-   360                                 
-   361                                 
-   362                                 
+   352                                 
+   353                                 
+   354                                 
+   355 000002AA 8B0425[00000000]        mov eax, dword [dNum5]
+   356 000002B1 030425[00000000]        add eax, dword [dNum3]
+   357 000002B8 890425[00000000]        mov dword [dAns4], eax
+   358                                 
+   359                                 
+   360 000002BF 8B0425[00000000]        mov eax, dword [dNum6]
+   361 000002C6 030425[00000000]        add eax, dword [dNum4]
+   362 000002CD 890425[00000000]        mov dword [dAns5], eax
    363                                 
-   364 000002C6 8B0425[00000000]        mov eax, dword [dNum5]
-   365 000002CD 2B0425[00000000]        sub eax, dword [dNum2]
-   366 000002D4 890425[00000000]        mov dword [dAns9], eax
-   367                                 
-   368                                 
-   369 000002DB 8B0425[00000000]        mov eax, dword [dNum6]
-   370 000002E2 2B0425[00000000]        sub eax, dword [dNum3]
-   371 000002E9 890425[00000000]        mov dword [dAns10], eax
-   372                                 
-   373                                 
-   374                                 
+   364                                 
+   365                                 
+   366                                 
+   367 000002D4 8B0425[00000000]        mov eax, dword [dNum5]
+   368 000002DB 2B0425[00000000]        sub eax, dword [dNum2]
+   369 000002E2 890425[00000000]        mov dword [dAns9], eax
+   370                                 
+   371                                 
+   372 000002E9 8B0425[00000000]        mov eax, dword [dNum6]
+   373 000002F0 2B0425[00000000]        sub eax, dword [dNum3]
+   374 000002F7 890425[00000000]        mov dword [dAns10], eax
    375                                 
-   376 000002F0 48C7C000000000          mov rax, 0
-   377 000002F7 8B0425[00000000]        mov eax, dword [dNum1]
-   378 000002FE 48C7C100000000          mov rcx, 0
-   379 00000305 8B0C25[00000000]        mov ecx, dword [dNum2]
-   380 0000030C 48F7E1                  mul rcx
-   381 0000030F 48890425[00000000]      mov qword [qAns11], rax
-   382                                 
-   383                                 
-   384 00000317 48C7C000000000          mov rax, 0
-   385 0000031E 8B0425[00000000]        mov eax, dword [dNum2]
-   386 00000325 48C7C100000000          mov rcx, 0
-   387 0000032C 8B0C25[00000000]        mov ecx, dword [dNum3]
-   388 00000333 48F7E1                  mul rcx
-   389 00000336 48890425[00000000]      mov qword [qAns12], rax
-   390                                 
-   391                                 
-   392                                 
+   376                                 
+   377                                 
+   378                                 
+   379 000002FE 48C7C000000000          mov rax, 0
+   380 00000305 8B0425[00000000]        mov eax, dword [dNum1]
+   381 0000030C 48C7C100000000          mov rcx, 0
+   382 00000313 8B0C25[00000000]        mov ecx, dword [dNum2]
+   383 0000031A 48F7E1                  mul rcx
+   384 0000031D 48890425[00000000]      mov qword [qAns11], rax
+   385                                 
+   386                                 
+   387 00000325 48C7C000000000          mov rax, 0
+   388 0000032C 8B0425[00000000]        mov eax, dword [dNum2]
+   389 00000333 48C7C100000000          mov rcx, 0
+   390 0000033A 8B0C25[00000000]        mov ecx, dword [dNum3]
+   391 00000341 48F7E1                  mul rcx
+   392 00000344 48890425[00000000]      mov qword [qAns12], rax
    393                                 
-   394 0000033E 48630425[00000000]      movsxd rax, dword [dNum5]
-   395 00000346 48630C25[00000000]      movsxd rcx, dword [dNum1]
-   396 0000034E 48F7E9                  imul rcx
-   397 00000351 48890425[00000000]      mov qword [qAns14], rax
-   398                                 
-   399                                 
-   400 00000359 48630425[00000000]      movsxd rax, dword [dNum6]
-   401 00000361 48630C25[00000000]      movsxd rcx, dword [dNum2]
-   402 00000369 48F7E9                  imul rcx
-   403 0000036C 48890425[00000000]      mov qword [qAns15], rax
-   404                                 
-   405                                 
-   406                                 
-   407 00000374 BA00000000              mov edx, 0
-   408 00000379 8B0425[00000000]        mov eax, dword [dNum2]
-   409 00000380 F73425[00000000]        div dword [dNum3]
-   410 00000387 890425[00000000]        mov dword [dAns16], eax
-   411                                 
-   412                                 
-   413 0000038E 48C7C200000000          mov rdx, 0
-   414 00000395 488B0425[00000000]      mov rax, qword [qAns12]
-   415 0000039D F73425[00000000]        div dword [dNum4]
-   416 000003A4 890425[00000000]        mov dword [dAns18], eax
-   417                                 
-   418                                 
-   419 000003AB 891425[00000000]        mov dword [dRem18], edx
+   394                                 
+   395                                 
+   396                                 
+   397 0000034C 48630425[00000000]      movsxd rax, dword [dNum5]
+   398 00000354 48630C25[00000000]      movsxd rcx, dword [dNum1]
+   399 0000035C 48F7E9                  imul rcx
+   400 0000035F 48890425[00000000]      mov qword [qAns14], rax
+   401                                 
+   402                                 
+   403 00000367 48630425[00000000]      movsxd rax, dword [dNum6]
+   404 0000036F 48630C25[00000000]      movsxd rcx, dword [dNum2]
+   405 00000377 48F7E9                  imul rcx
+   406 0000037A 48890425[00000000]      mov qword [qAns15], rax
+   407                                 
+   408                                 
+   409                                 
+   410 00000382 BA00000000              mov edx, 0
+   411 00000387 8B0425[00000000]        mov eax, dword [dNum2]
+   412 0000038E F73425[00000000]        div dword [dNum3]
+   413 00000395 890425[00000000]        mov dword [dAns16], eax
+   414                                 
+   415                                 
+   416 0000039C 48C7C200000000          mov rdx, 0
+   417 000003A3 488B0425[00000000]      mov rax, qword [qAns12]
+   418 000003AB F73425[00000000]        div dword [dNum4]
+   419 000003B2 890425[00000000]        mov dword [dAns18], eax
    420                                 
    421                                 
-   422                                 
+   422 000003B9 891425[00000000]        mov dword [dRem18], edx
    423                                 
-   424 000003B2 8B0425[00000000]        mov eax, dword [dNum5]
-   425 000003B9 99                      cdq
-   426 000003BA F73C25[00000000]        idiv dword [dNum2]
-   427 000003C1 890425[00000000]        mov dword [dAns19], eax
-   428                                 
-   429                                 
-   430 000003C8 488B0425[00000000]      mov rax, qword [qAns12]
-   431 000003D0 4899                    cqo
-   432 000003D2 F73C25[00000000]        idiv dword [dNum4]
-   433 000003D9 890425[00000000]        mov dword [dAns21], eax
-   434                                 
-   435                                 
-   436 000003E0 891425[00000000]        mov dword [dRem21], edx
+   424                                 
+   425                                 
+   426                                 
+   427 000003C0 8B0425[00000000]        mov eax, dword [dNum5]
+   428 000003C7 99                      cdq
+   429 000003C8 F73C25[00000000]        idiv dword [dNum2]
+   430 000003CF 890425[00000000]        mov dword [dAns19], eax
+   431                                 
+   432                                 
+   433 000003D6 488B0425[00000000]      mov rax, qword [qAns12]
+   434 000003DE 4899                    cqo
+   435 000003E0 F73C25[00000000]        idiv dword [dNum4]
+   436 000003E7 890425[00000000]        mov dword [dAns21], eax
    437                                 
    438                                 
-   439                                 
+   439 000003EE 891425[00000000]        mov dword [dRem21], edx
    440                                 
    441                                 
    442                                 
-   443 000003E7 488B0425[00000000]      mov rax, qword [qNum5]
-   444 000003EF 48030425[00000000]      add rax, qword [qNum1]
-   445 000003F7 48890425[00000000]      mov qword [qAns4], rax
-   446                                 
-   447                                 
-   448 000003FF 488B0425[00000000]      mov rax, qword [qNum6]
-   449 00000407 48030425[00000000]      add rax, qword [qNum2]
-   450 0000040F 48890425[00000000]      mov qword [qAns5], rax
-   451                                 
-   452                                 
-   453                                 
+   443                                 
+   444                                 
+   445                                 
+   446 000003F5 488B0425[00000000]      mov rax, qword [qNum5]
+   447 000003FD 48030425[00000000]      add rax, qword [qNum1]
+   448 00000405 48890425[00000000]      mov qword [qAns4], rax
+   449                                 
+   450                                 
+   451 0000040D 488B0425[00000000]      mov rax, qword [qNum6]
+   452 00000415 48030425[00000000]      add rax, qword [qNum2]
+   453 0000041D 48890425[00000000]      mov qword [qAns5], rax
    454                                 
-   455 00000417 488B0425[00000000]      mov rax, qword [qNum5]
-   456 0000041F 482B0425[00000000]      sub rax, qword [qNum3]
-   457 00000427 48890425[00000000]      mov qword [qAns9], rax
-   458                                 
-   459                                 
-   460 0000042F 488B0425[00000000]      mov rax, qword [qNum6]
-   461 00000437 482B0425[00000000]      sub rax, qword [qNum4]
-   462 0000043F 48890425[00000000]      mov qword [qAns10], rax
-   463                                 
-   464                                 
-   465                                 
+   455                                 
+   456                                 
+   457                                 
+   458 00000425 488B0425[00000000]      mov rax, qword [qNum5]
+   459 0000042D 482B0425[00000000]      sub rax, qword [qNum3]
+   460 00000435 48890425[00000000]      mov qword [qAns9], rax
+   461                                 
+   462                                 
+   463 0000043D 488B0425[00000000]      mov rax, qword [qNum6]
+   464 00000445 482B0425[00000000]      sub rax, qword [qNum4]
+   465 0000044D 48890425[00000000]      mov qword [qAns10], rax
    466                                 
-   467 00000447 488B0425[00000000]      mov rax, qword [qNum1]
-   468 0000044F 48F72425[00000000]      mul qword [qNum2]
-   469 00000457 48890425[00000000]      mov qword [dqAns11], rax
-   470 0000045F 48891425[08000000]      mov qword [dqAns11+8], rdx
-   471                                 
-   472                                 
-   473 00000467 488B0425[00000000]      mov rax, qword [qNum2]
-   474 0000046F 48F72425[00000000]      mul qword [qNum3]
-   475 00000477 48890425[00000000]      mov qword [dqAns12], rax
-   476 0000047F 48891425[08000000]      mov qword [dqAns12+8], rdx
-   477                                 
-   478                                 
-   479                                 
+   467                                 
+   468                                 
+   469                                 
+   470 00000455 488B0425[00000000]      mov rax, qword [qNum1]
+   471 0000045D 48F72425[00000000]      mul qword [qNum2]
+   472 00000465 48890425[00000000]      mov qword [dqAns11], rax
+   473 0000046D 48891425[08000000]      mov qword [dqAns11+8], rdx
+   474                                 
+   475                                 
+   476 00000475 488B0425[00000000]      mov rax, qword [qNum2]
+   477 0000047D 48F72425[00000000]      mul qword [qNum3]
+   478 00000485 48890425[00000000]      mov qword [dqAns12], rax
+   479 0000048D 48891425[08000000]      mov qword [dqAns12+8], rdx
    480                                 
-   481 00000487 488B0425[00000000]      mov rax, qword [qNum5]
-   482 0000048F 48F72C25[00000000]      imul qword [qNum3]
-   483 00000497 48890425[00000000]      mov qword [dqAns14], rax
-   484 0000049F 48891425[08000000]      mov qword [dqAns14+8], rdx
-   485                                 
-   486                                 
-   487 000004A7 488B0425[00000000]      mov rax, qword [qNum6]
-   488 000004AF 48F72C25[00000000]      imul qword [qNum4]
-   489 000004B7 48890425[00000000]      mov qword [dqAns15], rax
-   490 000004BF 48891425[08000000]      mov qword [dqAns15+8], rdx
-   491                                 
-   492                                 
-   493                                 
+   481                                 
+   482                                 
+   483                                 
+   484 00000495 488B0425[00000000]      mov rax, qword [qNum5]
+   485 0000049D 48F72C25[00000000]      imul qword [qNum3]
+   486 000004A5 48890425[00000000]      mov qword [dqAns14], rax
+   487 000004AD 48891425[08000000]      mov qword [dqAns14+8], rdx
+   488                                 
+   489                                 
+   490 000004B5 488B0425[00000000]      mov rax, qword [qNum6]
+   491 000004BD 48F72C25[00000000]      imul qword [qNum4]
+   492 000004C5 48890425[00000000]      mov qword [dqAns15], rax
+   493 000004CD 48891425[08000000]      mov qword [dqAns15+8], rdx
    494                                 
-   495 000004C7 48C7C200000000          mov rdx, 0
-   496 000004CE 488B0425[00000000]      mov rax, qword [qNum1]
-   497 000004D6 48F73425[00000000]      div qword [qNum2]
-   498 000004DE 48890425[00000000]      mov qword [qAns16], rax
-   499                                 
-   500                                 
-   501 000004E6 488B0425[00000000]      mov rax, qword [dqAns12]
-   502 000004EE 488B1425[08000000]      mov rdx, qword [dqAns12+8]
-   503 000004F6 48F73425[00000000]      div qword [qNum4]
-   504 000004FE 48890425[00000000]      mov qword [qAns18], rax
-   505                                 
-   506                                 
-   507 00000506 48891425[00000000]      mov qword [qRem18], rdx
+   495                                 
+   496                                 
+   497                                 
+   498 000004D5 48C7C200000000          mov rdx, 0
+   499 000004DC 488B0425[00000000]      mov rax, qword [qNum1]
+   500 000004E4 48F73425[00000000]      div qword [qNum2]
+   501 000004EC 48890425[00000000]      mov qword [qAns16], rax
+   502                                 
+   503                                 
+   504 000004F4 488B0425[00000000]      mov rax, qword [dqAns12]
+   505 000004FC 488B1425[08000000]      mov rdx, qword [dqAns12+8]
+   506 00000504 48F73425[00000000]      div qword [qNum4]
+   507 0000050C 48890425[00000000]      mov qword [qAns18], rax
    508                                 
    509                                 
-   510                                 
+   510 00000514 48891425[00000000]      mov qword [qRem18], rdx
    511                                 
-   512 0000050E 488B0425[00000000]      mov rax, qword [qNum5]
-   513 00000516 4899                    cqo
-   514 00000518 48F73C25[00000000]      idiv qword [qNum3]
-   515 00000520 48890425[00000000]      mov qword [qAns19], rax
-   516                                 
-   517                                 
-   518 00000528 488B0425[00000000]      mov rax, qword [dqAns12]
-   519 00000530 488B1425[08000000]      mov rdx, qword [dqAns12+8]
-   520 00000538 48F73C25[00000000]      idiv qword [qNum4]
-   521 00000540 48890425[00000000]      mov qword [qAns21], rax
-   522                                 
-   523                                 
-   524 00000548 48891425[00000000]      mov qword [qRem21], rdx
+   512                                 
+   513                                 
+   514                                 
+   515 0000051C 488B0425[00000000]      mov rax, qword [qNum5]
+   516 00000524 4899                    cqo
+   517 00000526 48F73C25[00000000]      idiv qword [qNum3]
+   518 0000052E 48890425[00000000]      mov qword [qAns19], rax
+   519                                 
+   520                                 
+   521 00000536 488B0425[00000000]      mov rax, qword [dqAns12]
+   522 0000053E 488B1425[08000000]      mov rdx, qword [dqAns12+8]
+   523 00000546 48F73C25[00000000]      idiv qword [qNum4]
+   524 0000054E 48890425[00000000]      mov qword [qAns21], rax
    525                                 
    526                                 
-   527                                 
+   527 00000556 48891425[00000000]      mov qword [qRem21], rdx
    528                                 
-   529                                 last:
-   530 00000550 48C7C03C000000          mov rax, SYS_exit
-   531 00000557 48C7C700000000          mov rdi, EXIT_SUCCESS
-   532 0000055E 0F05                    syscall
-   533                                 
+   529                                 
+   530                                 
+   531                                 
+   532                                 last:
+   533 0000055E 48C7C03C000000          mov rax, SYS_exit
+   534 00000565 48C7C700000000          mov rdi, EXIT_SUCCESS
+   535 0000056C 0F05                    syscall
+   536                                 

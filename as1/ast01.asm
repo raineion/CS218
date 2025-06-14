@@ -1,6 +1,6 @@
 ; *****************************************************************
 ;  Name: Daniel Martinez Julio
-;  NSHE ID: 2001941913
+;  NSHE_ID: 2001941913
 ;  Section: 1001 - Summer 2025
 ;  Assignment: 1
 ;  Description: Assembly language arithmetic operations.
@@ -244,7 +244,6 @@ _start:
 	mov	r8b, byte [bNum1]
 	idiv	r8b
 	mov	byte [bAns21], al
-
 ;	 bRem21 = wNum4 % bNum1
 	mov	byte [bRem21], ah
 
@@ -317,7 +316,6 @@ _start:
 	mov	ax, word [dNum3]
 	div	word [wNum4]
 	mov	word [wAns18], ax
-
 ;	 wRem18 = dNum3 % wNum4
 	mov	word [wRem18], dx
 
@@ -411,7 +409,6 @@ _start:
 	mov	rax, qword [qAns12]
 	div	dword [dNum4]
 	mov	dword [dAns18], eax
-
 ;	 dRem18 = qAns12 % dNum4
 	mov	dword [dRem18], edx
 
@@ -499,7 +496,6 @@ _start:
 	mov	rdx, qword [dqAns12+8]
 	div	qword [qNum4]
 	mov	qword [qAns18], rax
-
 ;	 qRem18 = dqAns12 % qNum4
 	mov	qword [qRem18], rdx
 
@@ -516,7 +512,6 @@ _start:
 	mov	rdx, qword [dqAns12+8]
 	idiv	qword [qNum4]
 	mov	qword [qAns21], rax
-
 ;	 qRem21 = dqAns12 % qNum4
 	mov	qword [qRem21], rdx
 
